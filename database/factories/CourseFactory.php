@@ -24,7 +24,6 @@ class CourseFactory extends Factory
     public function definition()
     {
         return [
-            //
             'title' => $this->faker->sentence(),
             'description' => $this->faker->paragraphs(3,true),
             'user_id' => User::all()->random()->id

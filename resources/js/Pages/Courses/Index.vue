@@ -9,7 +9,6 @@
                 <div class="text-sm text-gray-500">{{ course.description }}</div>
                 <a :href="'course/' + course.id" class="bg-indigo-500 text-white px-2 py-1 text-sm rounded text-sm mt-3 hover:bg-indigo-700 inline-block">Voir la formation</a>
             </div>
-
         </div>
     </app-layout>
 </template>

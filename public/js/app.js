@@ -17914,16 +17914,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
+/* harmony import */ var _Jetstream_Button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Jetstream/Button */ "./resources/js/Jetstream/Button.vue");
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
+    Button: _Jetstream_Button__WEBPACK_IMPORTED_MODULE_1__.default,
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__.default
   },
   props: ['course'],
   data: function data() {
     return {
-      courseShow: this.course
+      courseShow: this.course,
+      currentKey: 0
     };
+  },
+  methods: {
+    switchEpisode: function switchEpisode(index) {
+      this.currentKey = index;
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
+    }
   },
   mounted: function mounted() {//console.log(this.courseList);
   }
@@ -21795,38 +21809,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "py-5"
+  "class": "py-4 mx-8"
 };
 var _hoisted_2 = {
+  "class": "text-2xl text-gray-500"
+};
+var _hoisted_3 = {
   "class": "text-sm text-gray-500"
 };
-
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("iframe", {
-  width: "853",
-  height: "480",
-  src: "https://www.youtube.com/embed/SlX03hcCayE",
-  title: "YouTube video player",
-  frameborder: "0",
-  allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture",
-  allowfullscreen: ""
-}, null, -1
-/* HOISTED */
-);
-
 var _hoisted_4 = {
-  "class": "p-3 mx-8 bg-white shadow rounded"
+  "class": "mt-6"
 };
 var _hoisted_5 = {
-  "class": "text-sm text-gray-500"
+  "class": "mt-3"
 };
-
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
-  "class": "flex justify-between items-center"
-}, null, -1
-/* HOISTED */
-);
-
 function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _this = this;
+
   var _component_app_layout = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("app-layout");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_app_layout, null, {
@@ -21836,11 +21835,36 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       )];
     }),
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.course.episodes[1].title), 1
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_this.courseShow.episodes[_this.currentKey].title), 1
       /* TEXT */
-      ), _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, "Mise En Ligne Par: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.course.user.name), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("iframe", {
+        "class": "w-full h-screen",
+        src: _this.courseShow.episodes[_this.currentKey].video_url,
+        title: "YouTube video player",
+        frameborder: "0",
+        allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture",
+        allowfullscreen: ""
+      }, null, 8
+      /* PROPS */
+      , ["src"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_this.courseShow.episodes[_this.currentKey].description), 1
       /* TEXT */
-      ), _hoisted_6])])];
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_this.courseShow.episodes, function (episode, index) {
+        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("ul", {
+          "class": "",
+          key: episode.id
+        }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(episode.title) + " - n " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(index + 1), 1
+        /* TEXT */
+        ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+          "class": "text-gray-500 focus:text-indigo-600 focus:outlin-none",
+          onClick: function onClick($event) {
+            return $options.switchEpisode(index);
+          }
+        }, "Voir l'episode", 8
+        /* PROPS */
+        , ["onClick"])]);
+      }), 128
+      /* KEYED_FRAGMENT */
+      ))])])];
     }),
     _: 1
     /* STABLE */

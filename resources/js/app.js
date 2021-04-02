@@ -7,6 +7,8 @@ import { InertiaProgress } from '@inertiajs/progress';
 
 const el = document.getElementById('app');
 
+window.eventBus = new Vue();
+
 createApp({
     render: () =>
         h(InertiaApp, {

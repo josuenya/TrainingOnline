@@ -8,6 +8,10 @@
             <iframe class="w-full h-screen" :src="this.courseShow.episodes[this.currentKey].video_url" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <div class="text-sm text-gray-500">{{ this.courseShow.episodes[this.currentKey].description }}</div>
 
+            <div class="py-6">
+<!--                envoie des donnees a un composant-->
+                <progress-bar :watched-episodes="watched" :episodes="course.episodes"/>
+            </div>
             <div class="mt-6">
                 <ul class="" v-for="(episode, index) in this.courseShow.episodes" v-bind:key="episode.id">
                     <li class="mt-3 flex justify-between items-center">
@@ -30,13 +34,14 @@
 import ProgressButton from "./components/ProgressButton";
 import AppLayout from "../../Layouts/AppLayout";
 import Button from "../../Jetstream/Button";
-
+import ProgressBar from "./components/ProgressBar";
 export default {
 
     components:{
         ProgressButton,
         Button,
-        AppLayout
+        AppLayout,
+        ProgressBar,
     },
 
     props: ['course','watched'],

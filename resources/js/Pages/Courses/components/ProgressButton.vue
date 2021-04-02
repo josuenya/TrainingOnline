@@ -13,7 +13,7 @@
         data() {
             return {
                 watchedEp: this.watchedEpisodes,
-                iswatched: false,
+                iswatched: null,
             }
         },
         methods: {
@@ -24,6 +24,7 @@
                 .then(response => {
                     if (response.status === 200){
                         this.iswatched = !this.iswatched;
+                        eventBus.$emit('toggleProgress', response.data);
                     }
                 })
                 .catch(error =>console.log(error));

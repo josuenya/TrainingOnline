@@ -15,6 +15,8 @@ class CreateCompletionsTable extends Migration
     {
         Schema::create('completions', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('episode_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

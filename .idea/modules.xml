@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$USER_HOME$/FormationVuejs/FirstVueProjet/.idea/FirstVueProjet.iml" filepath="$USER_HOME$/FormationVuejs/FirstVueProjet/.idea/FirstVueProjet.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/TrainingOnline.iml" filepath="$PROJECT_DIR$/.idea/TrainingOnline.iml" />
+      <module fileurl="file://$USER_HOME$/FormationVuejs/my-first-vue/.idea/my-first-vue.iml" filepath="$USER_HOME$/FormationVuejs/my-first-vue/.idea/my-first-vue.iml" />
     </modules>
   </component>
 </project>

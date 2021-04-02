@@ -20,8 +20,20 @@ class CourseController extends Controller
     public function show(int $id)
     {
          $course = Course::where('id',$id)->with('episodes')->first();
+         //watched contiendra les episodes terminer par l'utilisateur
+         $watched = auth()->user()->episodes;
+         dd($course);
          return Inertia::render('Courses/Show',[
              'course'=> $course,
+             'watched' => $watched,
          ]);
+    }
+
+    public function toggleProgress(Request $request)
+    {
+        $id = $request->input('episodeId');
+        $user = auth()->user();
+        $user->episodes()->toggle($id);
+        return $user->episodes;
     }
 }

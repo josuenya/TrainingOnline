@@ -10,8 +10,15 @@
 
             <div class="mt-6">
                 <ul class="" v-for="(episode, index) in this.courseShow.episodes" v-bind:key="episode.id">
-                    <li class="mt-3">{{episode.title}} - n {{index + 1 }}</li>
-                    <button class="text-gray-500 focus:text-indigo-600 focus:outlin-none" @click="switchEpisode(index)">Voir l'episode</button>
+                    <li class="mt-3 flex justify-between items-center">
+                      <div>
+                          {{episode.title}} - n {{index + 1 }}
+                          <button class="text-gray-500 focus:text-indigo-600 focus:outline-none"
+                                  @click="switchEpisode(index)">Voir l'episode
+                          </button>
+                      </div>
+                        <progress-button :episode-id="episode.id" :watched-episodes="watched" />
+                    </li>
                 </ul>
             </div>
         </div>
@@ -20,16 +27,19 @@
 
 <script>
 
+import ProgressButton from "./components/ProgressButton";
 import AppLayout from "../../Layouts/AppLayout";
 import Button from "../../Jetstream/Button";
+
 export default {
 
     components:{
+        ProgressButton,
         Button,
         AppLayout
     },
 
-    props: ['course'],
+    props: ['course','watched'],
     data() {
         return {
             courseShow: this.course,
@@ -40,16 +50,13 @@ export default {
     methods:{
         switchEpisode(index){
             this.currentKey = index;
-
             window.scrollTo({
                 top:0,
                 left:0,
                 behavior: 'smooth',
             })
         }
-
     },
-
 
 
     mounted() {

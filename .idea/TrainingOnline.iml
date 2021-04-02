@@ -129,5 +129,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="FirstVueProjet" />
+    <orderEntry type="module" module-name="my-first-vue" />
   </component>
 </module>
